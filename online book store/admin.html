@@ -1,22 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link type="icon" href="imges/open-book.png">
+    <link rel="stylesheet"  href="style.css">
+    <style>
+
+    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100;0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,100;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&family=Roboto:ital,wght@0,100;0,300;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link type="icon" href="imges/open-book.png">    
     <!--<link rel="icon" href="favicon.ico" type="image/x-icon">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.22.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="	https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit index</title>
-</head>
-<body>
+  </head>
+  <body style=" background-image: url('/imges/img.21.jpg'); z-index: -1;   background-size: 1000px ;">
     
 
-    <header class="bg-header head-position">
+  <header>
+      <div style=" width: 1225px; margin-top: 165PX;margin-left: -91PX;" class="col-12">
+        <h3 style="margin-left: 311px;font-weight: 900;color: black;">BOOK DETAILS </h3>
+        <div class="row">
+          <div class="col-2"></div>
+        <div style="height: 400px;" class="col-1 ">
+          <!--<img style="width: 100%;height: 100%; transition: opacity 0.5s;" src="imges\front end\il_570xN.3085614346_gj3y.webp" alt="">-->
+        </div>
+        <div style="margin-left: 0px;border-radius: 10px;" class="col-4  bg-dark">
+          <h5 style="margin-left: 80PX;margin-top: 15px;font-weight: 800;" class="bg-dark text-white">CARDS DETAILS</h5>
+
+        <label style="font-weight: 700;margin-top: -5px;" class="bg-dark text-white" for="imageFile">Upload Image</label><br>
+        <input style="font-weight: 700;" class="form-control form-control-sm"  id="imageFile" type="file"><br>
+        
+        <label style="font-weight: 700;" class="bg-dark text-white" for="name1">Enter Book Name</label><br>
+        <input class="form-control form-control-sm" id="name1"  type="text" >
+        
+        <label style="font-weight: 700;margin-top: 15px;" class="bg-dark text-white" for="bkauthor">Enter Book author</label><br>
+        <input class="form-control form-control-sm" id="bkauthor"  type="text" >
+
+        <label style="font-weight: 700;margin-top: 15px;" class="bg-dark text-white" for="price">Enter Book price</label><br>
+        <input class="form-control form-control-sm" type="number" id="bkPrice">
+
+        <button onclick="updateValues()" id="addButton" type="button" style="margin-top: 25px;font-weight: 700;" class="btn btn-outline-info ms-4 col-10">ADD DETAILS</button>
+        </div>
+        <div class="col-2"></div>
+      </div> 
+      </div>  
+  </header>
+
+<!--
+  <section class="container mt-3 mb-1">
+  <h3 style="font-weight: 900; margin-left: -2px;color: greenyellow;" class="mb-3">Kids </h3>
+  <div class="row">
+    <div class="col-12">
+      <h5>Cards</h5>
+      <label for="kidsimageFile">Upload Image</label><br>
+      <input class="col-3" id="kidsimageFile" type="file"><br>
+      <label for="name1">Enter Book Name</label><br>
+      <input id="Kdname1" type="text"><br>
+      <label for="BookAuthor">Enter Book Author</label><br>
+      <input id="BookAuthor" type="text"><br>
+      <label for="Kdprice">Enter Book price</label><br>
+      <input id="KdbkPrice" type="number"><br>
+      <button onclick="KidscardFrom()" id="addButton1" class="btn bg-dark ms-1 text-white col-sm-1 mt-4">Add</button>   
+    </div>
+  </div> 
+</section>
+-->
+
+<!--
+    <div class="container mt-3">
+    <div class="spedition">
+      <h3 style="font-weight: 900; margin-left: -10px;color: rosybrown;">Our Special Edittion </h3>
+            <label for="name"> enter headding name</label><br>
+            <input id="spHeading" type="text" ><br>          
+           <label for="number"> Enter book price</label><br>
+           <input type="number"  id="spPrice"><br>     
+        <label for="imageFile">Upload Image</label><br>
+        <input class="col-3" id="spimg" type="file"><br>
+      </div>
+      <button onclick="specialEdition()" id="" class="btn bg-dark ms-1 text-white col-sm-1 mt-1">update</button>
+    </div>
+-->
+
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
+  <!-- <header class="bg-header head-position">
         <div class=" col-lg-12 row py-5 ">
             <div class="col-lg-4">
             <img class="head-imag " src="imges\Untitled_design__20_-removebg-preview-180x60.png" alt="">
@@ -32,7 +109,7 @@
                 </div>
               </nav></div>
               </div>  
- <!--<div class="col-lg-3">
+ <div class="col-lg-3">
                 <button type="button"  class="btn btn-outline-light bn-style" id="cart">
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="19.628" height="22.183" viewBox="0 0 19.628 22.183">
                       <path id="_9004670_bag_shopping_store_shop_icon" data-name="9004670_bag_shopping_store_shop_icon" d="M5.064,21.983H17.155a3.664,3.664,0,0,0,3.635-4.122L19.644,8.7A3.668,3.668,0,0,0,16.012,5.5h-.322V4.58a4.58,4.58,0,1,0-9.16,0V5.5H6.207A3.668,3.668,0,0,0,2.572,8.7l-1.145,9.16a3.664,3.664,0,0,0,3.636,4.122Zm3.3-17.4a2.748,2.748,0,0,1,5.5,0V5.5h-5.5ZM3.245,18.092,4.39,8.933a1.832,1.832,0,0,1,1.817-1.6h.322V9.16a.916.916,0,0,0,1.832,0V7.328h5.5V9.16a.916.916,0,0,0,1.832,0V7.328h.322a1.832,1.832,0,0,1,1.817,1.6l1.145,9.16a1.832,1.832,0,0,1-1.819,2.059H5.064a1.832,1.832,0,0,1-1.817-2.059Z" transform="translate(-1.294 0.1)" stroke="#000" stroke-width="0.2"></path>
@@ -45,7 +122,7 @@
                     Sign Up</button>
              </div> 
         </div>    
-        <div>-->
+        <div>
             <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body  py-1" data-bs-theme="dark">
                 <div class="container-fluid">
                   <a style="margin-left: 239px;" class="navbar-brand" >Home</a>
@@ -79,39 +156,4 @@
                 </div>
               </nav>
         </div>
-  </header>
-
-  <header>
-    <div class="container mt-3 mb-5">
-      <div class="">
-        <h3 style="font-weight: 900; margin-left: 29px;" class="mb-3">Novels </h3>
-        <label for="img"></label>
-        <img src="" alt="">
-        <h5>card 1</h5>
-      <label for="name">Enter book Name</label><br>
-      <input id="name" type="text"><br>
-      <label for="name">Enter book author</label><br>
-      <input id="author" type="text"><br>
-      <button  onclick="indexNovelcards()" id="addButton" class="btn bg-dark ms-1 text-white col-sm-1 mt-2">Update</button>
-      </div> 
-    </div>
-  </header>
-
-  <div class="container mt-2">
-    <div class="row">
-       
-    <!--<button type="button" id="updateButton"  onclick="" class="btn btn-outline-dark ms-1 col-sm-1">Update</button>--> 
-    </div>      
-    <div class="container">
-      <div  id="cardvalue">
-
-
-      </div>
-     </div>
-
-
-  <script src="main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-</body>
-</html>
+  </header>-->

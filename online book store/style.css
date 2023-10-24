@@ -1,10 +1,5 @@
 
-.head-position{
 
-}
-body{
- 
-}
 .bg-header{
  background-color:#fcfcfc;
 
@@ -24,12 +19,16 @@ body{
 }
 
 
+.inner-left{
+  margin-left: 10px;
+  height:50px ;
+}
 
 
 
 
 
-
+ 
 #cards_landscape_wrap-2{
   text-align: center;
 /*background: #F7F7F7;*/
@@ -113,6 +112,7 @@ body{
 }
 .color-novel{
   color: #00acc1;
+
 }
 
 

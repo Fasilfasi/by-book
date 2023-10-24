@@ -1,49 +1,252 @@
-function UpdateValues(){
-   let name1 = document.getElementById("name1").value;
-   let name2 = document.getElementById("name2").value;
-   let name3 = document.getElementById("name3").value;
-   let name4 = document.getElementById("name4").value;
-   let author1 = document.getElementById("author1").value;
-   let author2 = document.getElementById("author2").value;
-   let author3 = document.getElementById("author3").value;
-   let author4 = document.getElementById("author4").value;
 
-   let cardsValue={
-      Card1name1: name1,
-      Card1Author1: author1,
-      Card2Name2: name2,
-      Card2Author2: author2,
-      Card3Name3: name3,
-      Card3Author3: author3,
-      Card4Name4: name4,
-      Card4Author4: author4
-   }
 
-   localStorage.setItem("cardsValue", JSON.stringify(cardsValue))
-   
+
+
+function scrollToSection(sectionId) {
+  var section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth'});
+  }
 }
 
 
-function loadCardsFromLocalStorage() {
-   const storedCardsValue = localStorage.getItem("cardsValue");
+// View html 
 
-   if (storedCardsValue) {
-      const cardsValue = JSON.parse(storedCardsValue);
-      console.log(cardsValue);
 
-      document.getElementById("card1Name").textContent = cardsValue.Card1name1;
-      document.getElementById("card1Author").textContent = cardsValue.Card1Author1;
+//admin page 
+function updateValues() {
 
-      document.getElementById("card2Name").textContent = cardsValue.Card2Name2;
-      document.getElementById("card2Author").textContent = cardsValue.Card2Author2;
+   const imageFile = document.getElementById("imageFile").files[0];
+   const name1 = document.getElementById("name1").value;
+   const bkPrice = document.getElementById("bkPrice").value;    
+   const bkauthor = document.getElementById("bkauthor").value;    
+   if (!imageFile) {
+    alert("Please select an image");
+    return;
+ }  
+ if (!name1) {
+    alert("Please enter a book name");
+    return;
+ }
+ if (!bkauthor) {
+   alert("Please enter a book author");
+   return;
+}
+ if (!bkPrice) {
+    alert("Please enter a book price");
+    return;
+ }
 
-      document.getElementById("card3Name").textContent = cardsValue.Card3Name3;
-      document.getElementById("card3Author").textContent = cardsValue.Card3Author3;
+   if (imageFile && name1 && bkPrice && bkauthor) {
+       const reader = new FileReader();                                                                                  // Store values in local storage
+       reader.onload = function(event) {
+           const img1 = event.target.result;
+           const cardData = {
+               img: img1,
+               name: name1,
+               price: bkPrice,
+               Author: bkauthor
+           };
+// Check if local storage already has data
+                  
+           let cardsData = JSON.parse(localStorage.getItem("cardsData")) || [];
+           cardsData.push(cardData);           
+           localStorage.setItem("cardsData", JSON.stringify(cardsData));
+           
+// Create and append a card
+           const cardContainer = document.getElementById("cards_landscape_wrap-2");
+           const newCard = createCard(img1, name1, bkPrice,bkauthor);
+           cardContainer.appendChild(newCard);  
+       
+       };
 
-      document.getElementById("card4Name").textContent = cardsValue.Card4Name4;
-      document.getElementById("card4Author").textContent = cardsValue.Card4Author4;
+       reader.readAsDataURL(imageFile);
    }
+
+     document.getElementById("imageFile").value = "";
+     document.getElementById("name1").value = "";
+     document.getElementById("bkPrice").value = "";
+     document.getElementById("bkauthor").value = "";
 }
 
-// Call the loadCardsFromLocalStorage function on page load
-loadCardsFromLocalStorage();
+
+
+
+function createCard(imgUrl, bookName, BookPrice, ) {
+   const cardDiv = document.createElement("div");
+   cardDiv.className = "col-xs-12 col-sm-6 col-md-3 col-lg-3";
+
+   cardDiv.innerHTML = `
+       <a href="" class="card-link">
+           <div class="card-flyer">
+               <div class="text-box">
+                   <div class="image-box">
+                       <span onclick="View()"  id="books"><img src="${imgUrl}" alt="" /></span>
+                   </div>
+                   <div onclick="View()" class="text-container">
+                       <h6>${bookName}</h6>
+                       <p><span style="font-weight: 900; margin-right: -5px;">₹</span> <span style="font-weight: 700;">${BookPrice}</span></p>
+                   </div>
+               </div>
+           </div>
+       </a>
+   `;
+   return cardDiv;
+}
+
+// Function to initialize(arambikkunnu) cards from local storage
+function initializeCardsFromLocalStorage() {
+   const cardsData = JSON.parse(localStorage.getItem("cardsData"));
+
+   if (cardsData) {
+       const cardContainer = document.getElementById("cards_landscape_wrap-2");
+
+       cardsData.forEach(cardData => {
+           const newCard = createCard(cardData.img, cardData.name, cardData.price);
+           console.log(newCard)
+           cardContainer.appendChild(newCard);
+       });
+   }
+}
+// Call the initialization function
+initializeCardsFromLocalStorage();
+
+
+
+
+
+
+
+
+
+
+
+
+// sign in page
+function signin(){
+   let firstname= document.getElementById("firstname").value
+   let lastname= document.getElementById("lastname").value
+   let email= document.getElementById("exampleInputEmail1").value
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailRegex.test(email)) {
+        alert("Enter a valid Gmail address");
+        return;}
+   let password= document.getElementById("exampleInputPassword1").value
+
+   let sing_in={
+    firstnamename:firstname,
+    lastname:lastname,
+    email:email,
+    password:exampleInputPassword1,
+}
+if (
+  firstname === "",
+  lastname === "",
+  email === "" ,
+  password === ""
+){
+  alert("Fill Form");
+} else if (password.length !== 8) {
+  alert("password must be 8 letters"); 
+}else{
+alert("Sign In successfull")
+window.open("index.html")
+if (window.opener) {
+  window.opener.document.getElementById("signUp").style.display = "none";
+  }  
+  
+}
+document.addEventListener("DOMContentLoaded", function() {
+document.getElementById("signUp").style.display = "none";
+});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function View() {
+   // Values to be passed as query parameters
+   const imgUrl = "image_url_here";
+   const bookName = "book_name_here";
+   const bookPrice = "book_price_here";
+
+   // Construct the URL with query parameters
+   const url = `view.html?img=${encodeURIComponent(imgUrl)}&name=${encodeURIComponent(bookName)}&amount=${encodeURIComponent(bookPrice)}`;
+
+   // Open the new page with the constructed URL
+   window.open(url);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
